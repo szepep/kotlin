@@ -14,12 +14,13 @@ import org.springframework.http.HttpStatus
 @SpringBootTest(
     classes = [
         RouterConfiguration::class,
-        RequestHandlerImpl::class,
+        RequestHandler::class,
+        GeneratorImpl::class,
     ],
     webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
 )
 @EnableAutoConfiguration
-internal class RequestHandlerImplTest: RestAssuredTestCase() {
+internal class RouteTest: RestAssuredTestCase() {
 
     @LocalServerPort
     override lateinit var port: String

@@ -8,12 +8,8 @@ import org.springframework.web.reactive.function.server.bodyValueAndAwait
 import kotlin.random.Random
 
 @Service
-class RequestHandlerImpl: RequestHandler {
-    override suspend fun generate(request: ServerRequest): ServerResponse {
-        val delay: Long = request.delay()
-        val length: Int = request.length()
+class GeneratorImpl : Generator {
 
-        delay(delay)
-        return ServerResponse.ok().bodyValueAndAwait(Random.nextString(length))
-    }
+    override suspend fun generate(length: Int) = Random.nextString(length)
+
 }

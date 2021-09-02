@@ -28,6 +28,9 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.projectreactor:reactor-test")
+
+    testImplementation("org.mockito.kotlin:mockito-kotlin:3.2.0")
+    testImplementation("io.rest-assured:kotlin-extensions:4.4.0")
 }
 
 tasks.withType<KotlinCompile> {

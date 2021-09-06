@@ -28,7 +28,14 @@ internal class RouteWFTest {
 
     @Test
     fun `test router with length 100`() {
-        client.get().uri("/generate/10/100").exchange()
+        client.get().uri("/generate/100/10").exchange()
+            .expectStatus().isOk
+            .expectBody<String>().consumeWith { assertEquals(100, it.responseBody?.length) }
+    }
+
+    @Test
+    fun `test router with length 100 and no delay`() {
+        client.get().uri("/generate/100").exchange()
             .expectStatus().isOk
             .expectBody<String>().consumeWith { assertEquals(100, it.responseBody?.length) }
     }

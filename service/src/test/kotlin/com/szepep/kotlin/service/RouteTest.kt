@@ -42,7 +42,19 @@ internal class RouteTest: RestAssuredTestCase() {
         Given {
             spec(requestSpecification)
         } When {
-            get("/generate/10/100")
+            get("/generate/100/10")
+        } Then {
+            statusCode(HttpStatus.OK.value())
+            body(CharSequenceLength(equalTo(100)))
+        }
+    }
+
+    @Test
+    fun `test router with length 100 and no delay`() {
+        Given {
+            spec(requestSpecification)
+        } When {
+            get("/generate/100")
         } Then {
             statusCode(HttpStatus.OK.value())
             body(CharSequenceLength(equalTo(100)))
